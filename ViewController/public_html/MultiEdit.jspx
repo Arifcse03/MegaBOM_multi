@@ -713,6 +713,14 @@
                                               shortDesc="#{bindings.CustMnjOntBomRmlineEO_autoView11.hints.Flag.tooltip}"
                                               id="sbc8"/>
                   </af:column>
+                  <af:column headerText="POC Id"
+                             id="c186" align="center" sortable="true"
+                             filterable="true" sortProperty="PocId" width="50">
+                    <af:outputText value="#{row.PocId}" id="ot29">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.CustMnjOntBomRmlineEO_autoView11.hints.PocId.format}"/>
+                    </af:outputText>
+                  </af:column>
                   <af:column sortProperty="BomNumber" filterable="true"
                              sortable="true" headerText="Bom Number" id="c36"
                              width="35" align="center"
@@ -1144,6 +1152,14 @@
                                               label="#{row.bindings.Flag.label}"
                                               shortDesc="#{bindings.CustMnjOntBomRmlineEO_autoView12.hints.Flag.tooltip}"
                                               id="sbc9"/>
+                  </af:column>
+                  <af:column headerText="POC ID"
+                             id="c187" align="center" sortable="true"
+                             filterable="true" sortProperty="PocId" width="50">
+                    <af:outputText value="#{row.PocId}" id="ot30">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.CustMnjOntBomRmlineEO_autoView12.hints.PocId.format}"/>
+                    </af:outputText>
                   </af:column>
                   <af:column sortProperty="BomNumber" filterable="true"
                              sortable="true"
@@ -1589,6 +1605,14 @@
                                               label="#{row.bindings.Flag.label}"
                                               shortDesc="#{bindings.CustMnjOntBomRmlineEO_autoView13.hints.Flag.tooltip}"
                                               id="sbc10"/>
+                  </af:column>
+                  <af:column headerText="POC ID"
+                             id="c188" sortProperty="PocId" sortable="true"
+                             filterable="true" align="center" width="50">
+                    <af:outputText value="#{row.PocId}" id="ot31">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.CustMnjOntBomRmlineEO_autoView13.hints.PocId.format}"/>
+                    </af:outputText>
                   </af:column>
                   <af:column sortProperty="BomNumber" filterable="true"
                              sortable="true"

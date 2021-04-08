@@ -139,6 +139,7 @@
           <Item Value="Currency"/>
           <Item Value="StyleNameNew"/>
           <Item Value="ItemStatus"/>
+          <Item Value="PocId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -267,6 +268,7 @@
           <Item Value="StyleNameNew"/>
           <Item Value="BookingUom"/>
           <Item Value="ItemStatus"/>
+          <Item Value="PocId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -304,6 +306,7 @@
           <Item Value="StyleNameNew"/>
           <Item Value="BookingUom"/>
           <Item Value="ItemStatus"/>
+          <Item Value="PocId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
