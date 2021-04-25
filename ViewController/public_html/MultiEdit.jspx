@@ -267,7 +267,9 @@
                                               id="sbc7" autoSubmit="true"/>
                   </af:column>
                   <af:column headerText="POC ID"
-                             id="c185" width="50">
+                             id="c185" width="50" sortable="true"
+                             filterable="true" align="center"
+                             sortProperty="PocId">
                     <af:outputText value="#{row.PocId}" id="ot28">
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.CustMnjOntBomRmlineEO_autoView1.hints.PocId.format}"/>
@@ -303,10 +305,15 @@
                       <f:validator binding="#{row.bindings.SeasonC.validator}"/>
                     </af:inputText>
                   </af:column>
+                  <af:column headerText="Style"
+                             id="c192" align="center" sortable="true"
+                             filterable="true" sortProperty="Style">
+                    <af:outputText value="#{row.Style}" id="ot35"/>
+                  </af:column>
                   <af:column sortProperty="StyleNoC" filterable="true"
                              sortable="true" headerText="Style No" id="c19"
                              align="center" width="90"
-                             filterFeatures="caseInsensitive">
+                             filterFeatures="caseInsensitive" visible="false">
                     <af:inputText value="#{row.bindings.StyleNoC.inputValue}"
                                   label="#{bindings.CustMnjOntBomRmlineEO_autoView1.hints.StyleNoC.label}"
                                   required="#{bindings.CustMnjOntBomRmlineEO_autoView1.hints.StyleNoC.mandatory}"
@@ -335,7 +342,7 @@
                              id="c175" align="center" sortable="true"
                              filterable="true" width="90"
                              sortProperty="StyleNameNew"
-                             filterFeatures="caseInsensitive">
+                             filterFeatures="caseInsensitive" visible="false">
                     <af:outputText value="#{row.StyleNameNew}" id="ot20"/>
                   </af:column>
                   <af:column sortProperty="LegacyCode" filterable="true"
@@ -752,11 +759,16 @@
                       <f:validator binding="#{row.bindings.SeasonC.validator}"/>
                     </af:inputText>
                   </af:column>
+                  <af:column headerText="Style"
+                             id="c191" align="center" sortable="true"
+                             filterable="true" sortProperty="Style">
+                    <af:outputText value="#{row.Style}" id="ot34"/>
+                  </af:column>
                   <af:column sortProperty="StyleNoC" filterable="true"
                              sortable="true"
                              headerText="Style No"
                              id="c40" align="center" width="90"
-                             filterFeatures="caseInsensitive">
+                             filterFeatures="caseInsensitive" visible="false">
                     <af:inputText value="#{row.bindings.StyleNoC.inputValue}"
                                   label="#{bindings.CustMnjOntBomRmlineEO_autoView11.hints.StyleNoC.label}"
                                   required="#{bindings.CustMnjOntBomRmlineEO_autoView11.hints.StyleNoC.mandatory}"
@@ -771,7 +783,7 @@
                              id="c176" width="90" align="center"
                              sortable="true" filterable="true"
                              sortProperty="StyleNameNew"
-                             filterFeatures="caseInsensitive">
+                             filterFeatures="caseInsensitive" visible="false">
                     <af:outputText value="#{row.StyleNameNew}" id="ot21"/>
                   </af:column>
                   <af:column sortProperty="StyleNameC" filterable="true"
@@ -1192,11 +1204,16 @@
                       <f:validator binding="#{row.bindings.SeasonC.validator}"/>
                     </af:inputText>
                   </af:column>
+                  <af:column headerText="Style"
+                             id="c190" align="center" sortable="true"
+                             filterable="true" sortProperty="Style">
+                    <af:outputText value="#{row.Style}" id="ot33"/>
+                  </af:column>
                   <af:column sortProperty="StyleNoC" filterable="true"
                              sortable="true"
                              headerText="Style No"
                              id="c50" align="center" width="90"
-                             filterFeatures="caseInsensitive">
+                             filterFeatures="caseInsensitive" visible="false">
                     <af:inputText value="#{row.bindings.StyleNoC.inputValue}"
                                   label="#{bindings.CustMnjOntBomRmlineEO_autoView12.hints.StyleNoC.label}"
                                   required="#{bindings.CustMnjOntBomRmlineEO_autoView12.hints.StyleNoC.mandatory}"
@@ -1211,7 +1228,7 @@
                              id="c177" width="95" sortable="true"
                              align="center" filterable="true"
                              sortProperty="StyleNameNew"
-                             filterFeatures="caseInsensitive">
+                             filterFeatures="caseInsensitive" visible="false">
                     <af:outputText value="#{row.StyleNameNew}" id="ot22"/>
                   </af:column>
                   <af:column sortProperty="StyleNameC" filterable="true"
@@ -1646,11 +1663,16 @@
                       <f:validator binding="#{row.bindings.SeasonC.validator}"/>
                     </af:inputText>
                   </af:column>
+                  <af:column headerText="Style"
+                             id="c189" align="center" sortable="true"
+                             filterable="true" sortProperty="Style">
+                    <af:outputText value="#{row.Style}" id="ot32"/>
+                  </af:column>
                   <af:column sortProperty="StyleNoC" filterable="true"
                              sortable="true"
                              headerText="Style No"
                              id="c87" align="center" width="95"
-                             filterFeatures="caseInsensitive">
+                             filterFeatures="caseInsensitive" visible="false">
                     <af:inputText value="#{row.bindings.StyleNoC.inputValue}"
                                   label="#{bindings.CustMnjOntBomRmlineEO_autoView13.hints.StyleNoC.label}"
                                   required="#{bindings.CustMnjOntBomRmlineEO_autoView13.hints.StyleNoC.mandatory}"
@@ -1665,7 +1687,7 @@
                              id="c178" width="90" rendered="true"
                              align="center" sortable="true" filterable="true"
                              sortProperty="StyleNameNew"
-                             filterFeatures="caseInsensitive">
+                             filterFeatures="caseInsensitive" visible="false">
                     <af:outputText value="#{row.StyleNameNew}" id="ot23"/>
                   </af:column>
                   <af:column sortProperty="StyleNameC" filterable="true"

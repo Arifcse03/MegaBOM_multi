@@ -3568,6 +3568,7 @@ Double.parseDouble(r.getAttribute("OrderQty").toString());
         
         String season=null;
         int BuyerId=0;
+        int PocId=0;
         
         try{
             BuyerId=Integer.parseInt(headerVO.getCurrentRow().getAttribute("BuyerId").toString());
@@ -3583,6 +3584,13 @@ Double.parseDouble(r.getAttribute("OrderQty").toString());
             ;
         }
         
+        
+        try{
+            PocId=Integer.parseInt(headerVO.getCurrentRow().getAttribute("PocId").toString());
+            System.out.println("-----------------------------------> buyer"+ PocId);
+        }catch(Exception e){
+            ;
+        }
         // Add event code here...
         ViewObject BOMLineVO=am.getCustMnjOntBomRmlineEO_autoView1();
         String statement=null;

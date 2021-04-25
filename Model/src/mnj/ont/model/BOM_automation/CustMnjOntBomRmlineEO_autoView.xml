@@ -272,15 +272,17 @@
          CUSTMNJONTBOMRMLINELINES.CURRENCY,
          CUSTMNJONTBOMRMLINELINES.PURCHASE_TYPE,
          CUSTMNJONTBOMRMLINELINES.REMARKS,
-         CustMnjOntBomHeader.POC_ID
+         CustMnjOntBomHeader.POC_ID,
+         h.style
     FROM CUST_MNJ_ONT_BOM_RMLINE CustMnjOntBomRmlineLines,
-         CUST_MNJ_ONT_BOM CustMnjOntBomHeader,
+         CUST_MNJ_ONT_BOM CustMnjOntBomHeader, xx_OM_POC_h_t h,
          mtl_system_items_b msib
    WHERE     msib.INVENTORY_ITEM_ID =
                 CustMnjOntBomRmlineLines.Inventory_Item_Id
          AND CustMnjOntBomRmlineLines.BOM_ID = CUSTMNJONTBOMHEADER.BOM_ID
          AND msib.ORGANIZATION_ID = 353
          AND CustMnjOntBomRmlineLines.ATTRIBUTE1 IS NULL
+         and CustMnjOntBomHeader.POC_ID=h.poc_id
 ORDER BY DECODE (SUBSTR (CustMnjOntBomRmlineLines.ITEM_CODE, 1, 2),
                  11, 1,
                  12, 2,
@@ -1168,6 +1170,21 @@ ORDER BY DECODE (SUBSTR (CustMnjOntBomRmlineLines.ITEM_CODE, 1, 2),
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Style"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STYLE"
+    Expression="STYLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute

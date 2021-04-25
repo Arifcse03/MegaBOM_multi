@@ -78,6 +78,7 @@
           <Item Value="StyleNameNew"/>
           <Item Value="ItemStatus"/>
           <Item Value="PocId"/>
+          <Item Value="Style"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -140,6 +141,7 @@
           <Item Value="StyleNameNew"/>
           <Item Value="ItemStatus"/>
           <Item Value="PocId"/>
+          <Item Value="Style"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -269,6 +271,7 @@
           <Item Value="BookingUom"/>
           <Item Value="ItemStatus"/>
           <Item Value="PocId"/>
+          <Item Value="Style"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -307,6 +310,7 @@
           <Item Value="BookingUom"/>
           <Item Value="ItemStatus"/>
           <Item Value="PocId"/>
+          <Item Value="Style"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
