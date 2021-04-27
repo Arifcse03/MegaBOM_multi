@@ -19,12 +19,8 @@
         ResId="mnj.ont.model.BOM_automation.headerSearchVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <Variable
-    Name="p_bpo"
-    Kind="where"
-    Type="java.lang.String"/>
   <SQLQuery>
-    <![CDATA[SELECT 
+    <![CDATA[/*SELECT 
         CustMnjOntBomHeader.BOM_ID,
        CustMnjOntBomHeader.BOM_NUMBER,
        CustMnjOntBomHeader.BOM_DATE,
@@ -56,6 +52,47 @@
       
              
 and CustMnjOntBomHeader.BOM_ID in (select distinct BOM_ID from MNJ_BOM_BPO_LINES_ALL where UPPER(BPO_NO) like UPPER(:p_bpo)) or :p_bpo is null 
+ order by CustMnjOntBomHeader.Bom_Number desc */
+
+
+SELECT 
+        CustMnjOntBomHeader.BOM_ID,
+       CustMnjOntBomHeader.BOM_NUMBER,
+       CustMnjOntBomHeader.BOM_DATE,
+         CustMnjOntBomHeader.CREATION_DATE,
+       CustMnjOntBomHeader.CREATED_BY,
+       CustMnjOntBomHeader.ORG_ID,
+      
+       (select CU.CUSTOMER_NAME
+          from AR_CUSTOMERS CU
+         where CU.CUSTOMER_ID = CustMnjOntBomHeader.Buyer_Id) buyer,
+       /*CustMnjOntBomHeader.Buyer_Id,
+       CustMnjOntBomHeader.Season_c,
+       CustMnjOntBomHeader.Style_Name_c,
+       CustMnjOntBomHeader.Style_No_c,*/
+V.Buyer_Id,
+V.SEASON Season_c,
+V.STYLE Style_Name_c,
+V.STYLE Style_No_c,
+      
+       (select name
+          from hr_all_organization_units haou
+         where CustMnjOntBomHeader.Org_Id = haou.organization_id) unit_name,
+ (select name
+          from hr_all_organization_units haou
+         where CustMnjOntBomHeader.Org_Id = haou.organization_id) shipment_unit,
+
+  CustMnjOntBomHeader.Order_Type,
+  CustMnjOntBomHeader.Division ,
+  CustMnjOntBomHeader.STYLE_NAME_NEW,
+  CustMnjOntBomHeader.POC_ID,
+  v.Style Style_New
+  FROM CUST_MNJ_ONT_BOM CustMnjOntBomHeader,xx_om_poc_h_t v
+ WHERE sysdate between CustMnjOntBomHeader.effective_start_date and
+       nvl(CustMnjOntBomHeader.effective_end_date, sysdate)
+      
+  and v.poc_id=CustMnjOntBomHeader.POC_ID           
+/*and CustMnjOntBomHeader.BOM_ID in (select distinct BOM_ID from MNJ_BOM_BPO_LINES_ALL where UPPER(BPO_NO) like UPPER(:p_bpo)) or :p_bpo is null */
  order by CustMnjOntBomHeader.Bom_Number desc]]>
   </SQLQuery>
   <ViewAttribute
@@ -298,6 +335,35 @@ and CustMnjOntBomHeader.BOM_ID in (select distinct BOM_ID from MNJ_BOM_BPO_LINES
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PocId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="POC_ID"
+    Expression="POC_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StyleNew"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STYLE_NEW"
+    Expression="STYLE_NEW"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute

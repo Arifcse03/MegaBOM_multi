@@ -210,6 +210,8 @@
           <Item Value="Division"/>
           <Item Value="StyleNameNew"/>
           <Item Value="SelectBom" Binds="SelectBom"/>
+          <Item Value="PocId"/>
+          <Item Value="StyleNew"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

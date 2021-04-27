@@ -2060,6 +2060,14 @@
                                             shortDesc="#{bindings.headerSearchVO1.hints.SelectBom.tooltip}"
                                             id="sbc2"/>
                 </af:column>
+                <af:column headerText="POC ID"
+                           id="c193" align="center" sortable="true"
+                           filterable="true" sortProperty="PocId">
+                  <af:outputText value="#{row.PocId}" id="ot36">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.headerSearchVO1.hints.PocId.format}"/>
+                  </af:outputText>
+                </af:column>
                 <af:column sortProperty="BomNumber" filterable="true"
                            sortable="true" headerText="Bom Number" id="c88"
                            width="50" align="center"
@@ -2080,6 +2088,11 @@
                            align="center" filterFeatures="caseInsensitive">
                   <af:outputText value="#{row.SeasonC}" id="ot3"/>
                 </af:column>
+                <af:column headerText="Style"
+                           id="c194" align="center" sortable="true"
+                           filterable="true" sortProperty="StyleNew">
+                  <af:outputText value="#{row.StyleNew}" id="ot37"/>
+                </af:column>
                 <af:column sortProperty="StyleNameC" filterable="true"
                            sortable="true" headerText="Style Name" id="c86"
                            align="center" rendered="false">
@@ -2088,13 +2101,14 @@
                 <af:column headerText="Style Name"
                            id="c165" align="center" sortable="true"
                            filterable="true" sortProperty="StyleNameNew"
-                           filterFeatures="caseInsensitive" width="120">
+                           filterFeatures="caseInsensitive" width="120"
+                           visible="false">
                   <af:outputText value="#{row.StyleNameNew}" id="ot19"/>
                 </af:column>
                 <af:column sortProperty="StyleNoC" filterable="true"
                            sortable="true" headerText="Style No" id="c89"
                            align="center" filterFeatures="caseInsensitive"
-                           width="110">
+                           width="110" visible="false">
                   <af:outputText value="#{row.StyleNoC}" id="ot15"/>
                 </af:column>
                 <af:column sortProperty="UnitName" filterable="true"

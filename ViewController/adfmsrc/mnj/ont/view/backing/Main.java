@@ -2519,7 +2519,8 @@ Double.parseDouble(row.getAttribute("SizeWiseBomReqQty").toString());
                 if (flag != null && flag.equals("true")) {
 
                     createline(getPopulateValue(r, "BomId"), rr,
-                               getPopulateValue(r, "StyleNameC"),
+                              // getPopulateValue(r, "StyleNameC"),
+                              getPopulateValue(r, "StyleNew"),
                                getPopulateValue(r, "OrgId"));
                     System.out.println(" i am ready to create!!");
                 }
@@ -3559,6 +3560,7 @@ Double.parseDouble(r.getAttribute("OrderQty").toString());
         vo2.setWhereClause("BUYER_ID = '" + buyer_id + "' AND SEASON_C = '" +
                            season + "'AND ORG_ID = '" + org + "'");
         vo2.executeQuery();
+       System.out.println(vo2.getQuery()); 
 
     }
     

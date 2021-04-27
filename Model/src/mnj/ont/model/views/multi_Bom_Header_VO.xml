@@ -27,7 +27,7 @@
   </Variable>
   <SQLQuery>
     <![CDATA[/* Formatted on 3/25/2019 1:20:52 PM (QP5 v5.256.13226.35510) */
-SELECT D.*,
+/* SELECT D.*,
        (SELECT LISTAGG (Style_No_c, ',') WITHIN GROUP (ORDER BY Style_No_c)
           FROM (SELECT DISTINCT h.Style_No_c
                   FROM CUST_MNJ_ONT_BOM h
@@ -75,7 +75,59 @@ SELECT D.*,
                  season_c,
                  unit_name,
                  shipment_unit,
-                 Buyer_Id) D]]>
+                 Buyer_Id) D */
+
+
+SELECT D.*,
+(SELECT LISTAGG ( STYLE, ',') WITHIN GROUP (ORDER BY STYLE)
+FROM (SELECT DISTINCT h.STYLE
+FROM XX_OM_POC_H_T H --CUST_MNJ_ONT_BOM h
+WHERE d.org_id = h.LC_UNIT
+AND d.season_c = h.season
+AND d.Buyer_Id = h.Buyer_id))
+style_no,
+(SELECT LISTAGG ( STYLE, ',') WITHIN GROUP (ORDER BY STYLE)
+FROM (SELECT DISTINCT h.STYLE
+FROM XX_OM_POC_H_T H --CUST_MNJ_ONT_BOM h
+WHERE d.org_id = h.LC_UNIT
+AND d.season_c = h.season
+AND d.Buyer_Id = h.Buyer_id))
+style_name
+FROM ( SELECT *
+FROM ( SELECT CustMnjOntBomHeader.ORG_ID,
+CustMnjOntBomHeader.Buyer_Id,
+(SELECT CU.CUSTOMER_NAME
+FROM AR_CUSTOMERS CU
+WHERE CU.CUSTOMER_ID = CustMnjOntBomHeader.Buyer_Id)
+buyer,
+CustMnjOntBomHeader.Season_c,
+(SELECT name
+FROM hr_all_organization_units haou
+WHERE CustMnjOntBomHeader.Org_Id =
+haou.organization_id)
+unit_name,
+(SELECT name
+FROM hr_all_organization_units haou
+WHERE CustMnjOntBomHeader.Org_Id =
+haou.organization_id)
+shipment_unit
+FROM CUST_MNJ_ONT_BOM CustMnjOntBomHeader
+WHERE SYSDATE BETWEEN CustMnjOntBomHeader.effective_start_date
+AND NVL (
+CustMnjOntBomHeader.effective_end_date,
+SYSDATE)
+AND CustMnjOntBomHeader.Buyer_Id IN (SELECT V.BUYER_ID
+FROM --MNJ_USER_WISE_BUYERS_DET_V 
+XX_OM_BUYERWISE_USER_RES_T v
+WHERE V.USER_ID =
+:p_userId)
+ORDER BY CustMnjOntBomHeader.Bom_Number DESC)
+GROUP BY org_id,
+buyer,
+season_c,
+unit_name,
+shipment_unit,
+Buyer_Id) D]]>
   </SQLQuery>
   <ViewAttribute
     Name="OrgId"

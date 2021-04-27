@@ -146,7 +146,7 @@
   </ListBinding>
   <SQLQuery>
     <![CDATA[/* Formatted on 3/8/2020 12:02:14 PM (QP5 v5.256.13226.35510) */
-  SELECT CustMnjOntBomRmlineLines.BOM_ID,
+  SELECT distinct  CustMnjOntBomRmlineLines.BOM_ID,
          CUSTMNJONTBOMHEADER.BOM_number,
          CUSTMNJONTBOMHEADER.style_no_c,
          CUSTMNJONTBOMHEADER.style_name_c,
@@ -1160,7 +1160,6 @@ ORDER BY DECODE (SUBSTR (CustMnjOntBomRmlineLines.ITEM_CODE, 1, 2),
     AliasName="REMARKS"/>
   <ViewAttribute
     Name="PocId"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"

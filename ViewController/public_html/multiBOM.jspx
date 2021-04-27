@@ -86,7 +86,7 @@
                 <af:outputText value="#{row.ShipmentUnit}" id="ot3"/>
               </af:column>
               <af:column sortProperty="StyleNo" filterable="true"
-                         sortable="true" headerText="Style No" id="c2"
+                         sortable="true" headerText="Style" id="c2"
                          width="430" align="center"
                          filterFeatures="caseInsensitive"
                          inlineStyle="white-space: pre-wrap;">
@@ -96,7 +96,7 @@
                          sortable="true" headerText="Style Name" id="c4"
                          width="430" align="center"
                          inlineStyle="white-space: pre-wrap;"
-                         filterFeatures="caseInsensitive">
+                         filterFeatures="caseInsensitive" visible="false">
                 <af:outputText value="#{row.StyleName}" id="ot6"/>
               </af:column>
             </af:table>
