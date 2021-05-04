@@ -71,6 +71,7 @@ SELECT
        CustMnjOntBomHeader.Style_Name_c,
        CustMnjOntBomHeader.Style_No_c,*/
 V.Buyer_Id,
+AC.CUSTOMER_NAME Buyer_Name,
 V.SEASON Season_c,
 V.STYLE Style_Name_c,
 V.STYLE Style_No_c,
@@ -87,11 +88,11 @@ V.STYLE Style_No_c,
   CustMnjOntBomHeader.STYLE_NAME_NEW,
   CustMnjOntBomHeader.POC_ID,
   v.Style Style_New
-  FROM CUST_MNJ_ONT_BOM CustMnjOntBomHeader,xx_om_poc_h_t v
+  FROM CUST_MNJ_ONT_BOM CustMnjOntBomHeader,xx_om_poc_h_t v,ar_customers ac
  WHERE sysdate between CustMnjOntBomHeader.effective_start_date and
        nvl(CustMnjOntBomHeader.effective_end_date, sysdate)
       
-  and v.poc_id=CustMnjOntBomHeader.POC_ID           
+  and v.poc_id=CustMnjOntBomHeader.POC_ID   and v.buyer_id=ac.CUSTOMER_ID     
 /*and CustMnjOntBomHeader.BOM_ID in (select distinct BOM_ID from MNJ_BOM_BPO_LINES_ALL where UPPER(BPO_NO) like UPPER(:p_bpo)) or :p_bpo is null */
  order by CustMnjOntBomHeader.Bom_Number desc]]>
   </SQLQuery>
@@ -215,6 +216,21 @@ V.STYLE Style_No_c,
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BUYER_NAME"
+    Expression="BUYER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute

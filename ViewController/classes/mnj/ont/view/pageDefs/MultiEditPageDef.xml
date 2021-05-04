@@ -212,6 +212,7 @@
           <Item Value="SelectBom" Binds="SelectBom"/>
           <Item Value="PocId"/>
           <Item Value="StyleNew"/>
+          <Item Value="BuyerName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

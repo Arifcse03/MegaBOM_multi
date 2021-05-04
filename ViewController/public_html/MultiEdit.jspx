@@ -9,7 +9,8 @@
       <af:messages id="m1"/>
       <af:form id="f1" styleClass="AFStretchWidth">
         <af:popup id="p1"
-                  popupFetchListener="#{backing_bean.fetchFabricForMultiBOM}">
+                  popupFetchListener="#{backing_bean.fetchFabricForMultiBOM}"
+                  contentDelivery="lazyUncached">
           <af:dialog id="d2"
                      dialogListener="#{backing_bean.componentListenerForMultiBom}"
                      inlineStyle="width:1200.0px;" title="Fabric Components">
@@ -159,7 +160,8 @@
             </af:panelFormLayout>
           </af:dialog>
         </af:popup>
-        <af:popup id="p2" binding="#{backing_bean.filterPopUp}">
+        <af:popup id="p2" binding="#{backing_bean.filterPopUp}"
+                  contentDelivery="lazyUncached">
           <af:dialog id="d3" dialogListener="#{backing_bean.filterViewDialog}">
             <af:panelFormLayout id="pfl2" inlineStyle="width:206px;">
               <f:facet name="footer"/>
@@ -2033,7 +2035,8 @@
           </af:panelTabbed>
         </af:panelHeader>
         <af:popup id="p3" binding="#{backing_bean.headerVO}"
-                  popupFetchListener="#{backing_bean.doFilterHeaderInfo}">
+                  popupFetchListener="#{backing_bean.doFilterHeaderInfo}"
+                  contentDelivery="lazyUncached">
           <af:dialog id="d4"
                      dialogListener="#{backing_bean.BOMheaderDialogListener}"
                      inlineStyle="width:700px; height:600px;" title="Header Info">
@@ -2077,10 +2080,15 @@
                                       pattern="#{bindings.headerSearchVO1.hints.BomNumber.format}"/>
                   </af:outputText>
                 </af:column>
+                <af:column headerText="Buyer"
+                           id="c195" align="center" sortable="true"
+                           filterable="true" sortProperty="BuyerName">
+                  <af:outputText value="#{row.BuyerName}" id="ot38"/>
+                </af:column>
                 <af:column sortProperty="Buyer" filterable="true"
                            sortable="true" headerText="Buyer" id="c75"
                            align="center" filterFeatures="caseInsensitive"
-                           width="110">
+                           width="110" visible="false">
                   <af:outputText value="#{row.Buyer}" id="ot9"/>
                 </af:column>
                 <af:column sortProperty="SeasonC" filterable="true"
@@ -2120,7 +2128,8 @@
             </af:panelCollection>
           </af:dialog>
         </af:popup>
-        <af:popup id="p4" popupFetchListener="#{backing_bean.ThreadListener}">
+        <af:popup id="p4" popupFetchListener="#{backing_bean.ThreadListener}"
+                  contentDelivery="lazyUncached">
           <af:dialog id="d5" inlineStyle="width:1200.0px;"
                      title="Thread Components"
                      dialogListener="#{backing_bean.threadDialogListener}">
@@ -2270,7 +2279,8 @@
             </af:panelFormLayout>
           </af:dialog>
         </af:popup>
-        <af:popup id="p5" popupFetchListener="#{backing_bean.othersListener}">
+        <af:popup id="p5" popupFetchListener="#{backing_bean.othersListener}"
+                  contentDelivery="lazyUncached">
           <af:dialog id="d6" inlineStyle="width:1200.0px;"
                      title="Others Components"
                      dialogListener="#{backing_bean.othersDialogListener}">
@@ -2421,7 +2431,8 @@
           </af:dialog>
         </af:popup>
         <af:popup id="p6"
-                  popupFetchListener="#{backing_bean.ZipperFetchlistener}">
+                  popupFetchListener="#{backing_bean.ZipperFetchlistener}"
+                  contentDelivery="lazyUncached">
           <af:dialog id="d7" inlineStyle="width:1200.0px;"
                      title="Zipper/Button/Rivet Components"
                      dialogListener="#{backing_bean.zipperDialoglistener}">
@@ -2684,7 +2695,7 @@
             </af:panelCollection>
           </af:dialog>
         </af:popup>
-        <af:popup id="p8">
+        <af:popup id="p8" contentDelivery="lazyUncached">
           <af:dialog id="d11" styleClass="AFStretchWidth">
             <af:panelCollection id="pc15" inlineStyle="width:1040px;">
               <f:facet name="menus"/>
@@ -2903,7 +2914,8 @@
             </af:panelCollection>
           </af:dialog>
         </af:popup>
-        <af:popup id="p9" binding="#{backing_bean.supplierpopup}">
+        <af:popup id="p9" binding="#{backing_bean.supplierpopup}"
+                  contentDelivery="lazyUncached">
           <af:dialog id="d8"
                      dialogListener="#{backing_bean.supplierpopupDialogListener}">
             <af:panelFormLayout id="pfl3" inlineStyle="width:306px;">
